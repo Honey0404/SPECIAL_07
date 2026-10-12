@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>For you 💛</title>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg1:#fff1f5;--bg2:#fff8e6;--card:rgba(255,255,255,.78);--ink:#4a2f3a;--soft:#8a6573;--pink:#ff7aa8;--sun:#ffc94d;--line:#ffd3e1;--back:#ffe3ec;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg1:#2a1824;--bg2:#2a2230;--card:rgba(66,40,56,.8);--ink:#ffeaf1;--soft:#e2bccb;--line:#6a3f56;--back:#5a3149}}
+:root[data-theme="dark"]{--bg1:#2a1824;--bg2:#2a2230;--card:rgba(66,40,56,.8);--ink:#ffeaf1;--soft:#e2bccb;--line:#6a3f56;--back:#5a3149}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Nunito',system-ui,-apple-system,'Segoe UI',sans-serif;color:var(--ink);background:linear-gradient(160deg,var(--bg1),var(--bg2));background-attachment:fixed;min-height:100%;line-height:1.55}
+.float{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.float span{position:absolute;bottom:-50px;opacity:.5;animation:rise linear infinite}
+@keyframes rise{to{transform:translateY(-115vh) rotate(25deg)}}
+main{position:relative;z-index:1;max-width:760px;margin:0 auto;padding:0 18px 60px}
+section{padding:46px 0 10px;text-align:center}
+.hero{min-height:88vh;display:flex;flex-direction:column;justify-content:center;align-items:center}
+.big{font-size:84px;display:inline-block;animation:bob 3s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-10px) rotate(4deg)}}
+h1{font-family:'Caveat',cursive,system-ui;font-size:clamp(44px,12vw,70px);margin:6px 0;color:var(--pink);line-height:1.1}
+h2{font-family:'Caveat',cursive,system-ui;font-size:clamp(32px,8vw,44px);margin:0 0 6px;color:var(--pink)}
+.sub{color:var(--soft);max-width:480px;margin:0 auto 18px}
+.btn{font:inherit;font-weight:800;border:0;border-radius:999px;padding:13px 24px;background:var(--pink);color:#fff;cursor:pointer;box-shadow:0 6px 16px rgba(255,122,168,.35);transition:transform .15s}
+.btn:active{transform:scale(.95)}
+.btn.alt{background:var(--sun);color:#5a3b00;box-shadow:0 6px 16px rgba(255,201,77,.35)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;margin-top:18px}
+.flip{perspective:900px;background:none;border:0;padding:0;font:inherit;color:inherit;cursor:pointer;min-height:190px}
+.flip .in{position:relative;width:100%;height:100%;min-height:190px;transition:transform .6s;transform-style:preserve-3d}
+.flip.on .in{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;border-radius:22px;padding:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;backface-visibility:hidden;-webkit-backface-visibility:hidden;border:2px solid var(--line);background:var(--card);backdrop-filter:blur(6px)}
+.face.bk{transform:rotateY(180deg);background:var(--back);font-size:15.5px}
+.face .e{font-size:44px}.face b{font-size:19px}.face small{color:var(--soft);margin-top:6px}
+.card{background:var(--card);border:2px solid var(--line);border-radius:24px;padding:22px 18px;margin:16px auto 0;backdrop-filter:blur(6px)}
+.doubt{font-size:19px;color:var(--soft);font-style:italic;min-height:30px}
+.truth{font-size:19px;font-weight:700;margin-top:12px;min-height:58px;opacity:0;transform:translateY(8px);transition:.5s}
+.truth.show{opacity:1;transform:none}
+.chips,.stick{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:16px}
+.chip{font:inherit;font-weight:700;border:2px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:9px 16px;cursor:pointer;transition:transform .15s}
+.chip:active,.st:active{transform:scale(.9)}
+.chip.on{background:var(--pink);color:#fff;border-color:var(--pink)}
+.reason{min-height:56px;margin-top:16px;font-size:18px;font-weight:700}
+.st{font-size:38px;background:var(--card);border:2px solid var(--line);border-radius:20px;width:68px;height:68px;cursor:pointer;transition:transform .15s}
+.note{font-family:'Caveat',cursive,system-ui;font-size:26px;line-height:1.35}
+.hide{display:none}
+footer{text-align:center;color:var(--soft);padding:40px 0 10px;font-size:14px}
+.b{position:fixed;pointer-events:none;z-index:50;animation:pop 1.4s ease-out forwards}
+@keyframes pop{0%{opacity:1;transform:translate(-50%,-50%) scale(.4)}100%{opacity:0;transform:translate(calc(-50% + var(--dx)),calc(-50% + var(--dy))) scale(1.1)}}
+@media (prefers-reduced-motion:reduce){.big,.float span{animation:none}.flip .in{transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="float" id="float" aria-hidden="true"></div>
+<main>
+
+<section class="hero">
+  <div class="big">🌷</div>
+  <h1>Hi, you 💛</h1>
+  <p class="sub">This page is just for you. There's no special reason, except that you deserve to feel loved and smile today.</p>
+  <button class="btn" id="open">Open 💌</button>
+</section>
+
+<section id="know">
+  <h2>Things I want you to know</h2>
+  <p class="sub">Tap each card ✨</p>
+  <div class="grid">
+    <button class="flip" aria-label="Card 1"><div class="in"><div class="face"><span class="e">🌸</span><b>You are not a bad person</b><small>tap me</small></div><div class="face bk">Not even a little. Someone who worries about hurting others is not a bad person. Your caring heart is exactly why I'm sure.</div></div></button>
+    <button class="flip" aria-label="Card 2"><div class="in"><div class="face"><span class="e">🕊️</span><b>You are not guilty</b><small>tap me</small></div><div class="face bk">Everyone has things they wish they'd done differently. That means you grew, not that you must carry guilt forever. You're allowed to put it down.</div></div></button>
+    <button class="flip" aria-label="Card 3"><div class="in"><div class="face"><span class="e">🌅</span><b>Your past isn't your name</b><small>tap me</small></div><div class="face bk">The past is something that happened. It's not who you are. The person I see today is gentle, warm and real.</div></div></button>
+    <button class="flip" aria-label="Card 4"><div class="in"><div class="face"><span class="e">🧸</span><b>You are loved</b><small>tap me</small></div><div class="face bk">Not for being perfect. For being you. My love has no conditions attached.</div></div></button>
+  </div>
+</section>
+
+<section>
+  <h2>When doubt gets loud</h2>
+  <p class="sub">It happens to everyone. Here's a little back-and-forth.</p>
+  <div class="card">
+    <div class="doubt" id="doubt"></div>
+    <div class="truth" id="truth"></div>
+    <button class="btn" id="dbtn" style="margin-top:14px">Reply with the truth ☀️</button>
+  </div>
+</section>
+
+<section>
+  <h2>Little reasons I love you</h2>
+  <p class="sub">Tap one 🎈</p>
+  <div class="chips" id="chips"></div>
+  <div class="reason" id="reason"></div>
+</section>
+
+<section>
+  <h2>Send yourself some love</h2>
+  <p class="sub">Tap the stickers 🍓</p>
+  <div class="stick" id="stick"></div>
+</section>
+
+<section>
+  <h2>One last thing</h2>
+  <div class="card">
+    <p class="note">I'm on your side. Always.<br>You don't have to be perfect for me. You just have to be you. 💛</p>
+    <p style="font-weight:800;margin:20px 0 4px">Did this make you smile?</p>
+    <div class="chips">
+      <button class="btn" data-s="1">A little 🙂</button>
+      <button class="btn alt" data-s="2">Yes! 😄</button>
+    </div>
+    <p class="note hide" id="thanks" style="margin-top:18px">That's all I wanted. Your smile is my favorite thing. 🥹💛</p>
+  </div>
+</section>
+
+<footer>Come back to this page whenever you need it. It will always say the same thing. 🌈</footer>
+</main>
+
+<script>
+const $=s=>document.querySelector(s);
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function burst(x,y,list,n){
+  if(reduce)return;
+  n=n||14;
+  for(let i=0;i<n;i++){
+    const s=document.createElement('span');
+    s.className='b';s.textContent=list[i%list.length];
+    const a=Math.random()*Math.PI*2,d=60+Math.random()*110;
+    s.style.left=x+'px';s.style.top=y+'px';
+    s.style.setProperty('--dx',Math.cos(a)*d+'px');
+    s.style.setProperty('--dy',(Math.sin(a)*d-60)+'px');
+    s.style.fontSize=(18+Math.random()*16)+'px';
+    document.body.appendChild(s);
+    setTimeout(()=>s.remove(),1500);
+  }
+}
+function at(el){const r=el.getBoundingClientRect();return[r.left+r.width/2,r.top+r.height/2]}
+const HEARTS=['💛','💖','🌸','✨','🌷'];
+
+// floating background
+const fl=$('#float'),fe=['💛','🌸','✨','🌷','🦋','⭐','🧸','🍓'];
+for(let i=0;i<14;i++){
+  const s=document.createElement('span');
+  s.textContent=fe[i%fe.length];
+  s.style.left=(Math.random()*95)+'%';
+  s.style.fontSize=(16+Math.random()*20)+'px';
+  s.style.animationDuration=(14+Math.random()*14)+'s';
+  s.style.animationDelay=(-Math.random()*20)+'s';
+  fl.appendChild(s);
+}
+
+// open
+$('#open').onclick=e=>{burst(...at(e.currentTarget),HEARTS,16);$('#know').scrollIntoView({behavior:reduce?'auto':'smooth'})};
+
+// flip cards
+document.querySelectorAll('.flip').forEach(c=>c.onclick=()=>{
+  c.classList.toggle('on');
+  if(c.classList.contains('on'))burst(...at(c),HEARTS,8);
+});
+
+// doubt & truth
+const pairs=[
+ ["“I'm a bad person.”","You care this much about being good. That's not what a bad person does."],
+ ["“I don't deserve to be happy.”","You deserve gentleness, from others and from yourself."],
+ ["“My past ruins everything.”","Your past is a chapter, not the whole story."],
+ ["“I always mess things up.”","Being human isn't messing up. You can be imperfect and still deeply loved."],
+ ["“Why would anyone love me?”","Because of your heart, your warmth, your way of caring. And for me, it's not hard at all."]
+];
+let pi=0,shown=false;
+const dEl=$('#doubt'),tEl=$('#truth'),dBtn=$('#dbtn');
+function setPair(){dEl.textContent='☁️ '+pairs[pi][0];tEl.classList.remove('show');tEl.textContent='';}
+setPair();
+dBtn.onclick=()=>{
+  if(!shown){
+    tEl.textContent='☀️ '+pairs[pi][1];tEl.classList.add('show');
+    burst(...at(dBtn),['☀️','💛','✨'],10);
+    dBtn.textContent='Next one →';shown=true;
+  }else{
+    pi=(pi+1)%pairs.length;setPair();
+    dBtn.textContent='Reply with the truth ☀️';shown=false;
+  }
+};
+
+// reasons
+const reasons=[
+ ["😊","Your smile","It can change my whole day."],
+ ["🤗","How you care","You love people with your whole heart."],
+ ["🌸","Your kindness","It's gentle and real, never for show."],
+ ["🌿","Your honesty","You're real with me, and I treasure that."],
+ ["🎈","Your laugh","The best sound there is."],
+ ["💛","Just you","Nothing to add, nothing to fix."]
+];
+const chips=$('#chips'),rs=$('#reason');
+reasons.forEach(r=>{
+  const b=document.createElement('button');
+  b.className='chip';b.textContent=r[0]+' '+r[1];
+  b.onclick=()=>{
+    chips.querySelectorAll('.chip').forEach(c=>c.classList.remove('on'));
+    b.classList.add('on');rs.textContent=r[0]+' '+r[2];
+    burst(...at(b),[r[0],'💛'],9);
+  };
+  chips.appendChild(b);
+});
+
+// stickers
+['🌸','🐻','🌈','⭐','🧸','🍓','☀️','🦋','💌','🐣'].forEach(e=>{
+  const b=document.createElement('button');
+  b.className='st';b.textContent=e;b.setAttribute('aria-label','sticker '+e);
+  b.onclick=()=>burst(...at(b),[e,'💛'],12);
+  $('#stick').appendChild(b);
+});
+
+// smile
+document.querySelectorAll('[data-s]').forEach(b=>b.onclick=()=>{
+  $('#thanks').classList.remove('hide');
+  burst(...at(b),['🥰','💛','🌸','✨','😊','🎉'],22);
+});
+</script>
+</body>
+</html>
